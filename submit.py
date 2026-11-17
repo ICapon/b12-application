@@ -7,7 +7,6 @@ from datetime import datetime, timezone
 
 import requests
 
-URL = "https://b12.io/apply/submission"
 
 
 def iso_now() -> str:
@@ -45,7 +44,7 @@ def main() -> int:
     body = build_body(build_payload())
     print('Body', body)
     response = requests.post(
-        URL,
+        os.environ["SUBMISSION_URL"],
         data=body,
         headers={
             "Content-Type": "application/json",

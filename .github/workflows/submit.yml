@@ -16,3 +16,4 @@ jobs:
           APPLICANT_EMAIL: ${{ secrets.APPLICANT_EMAIL }}
           RESUME_LINK: ${{ vars.RESUME_LINK }}
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+          SUBMISSION_URL: ${{ vars.SUBMISSION_URL }}
