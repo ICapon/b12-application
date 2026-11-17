@@ -1,0 +1,8 @@
+[project]
+name = "resume-submission"
+version = "0.1.0"
+description = "Signed POST of a job application from a GitHub Action"
+requires-python = ">=3.12"
+dependencies = [
+    "requests",
+]
