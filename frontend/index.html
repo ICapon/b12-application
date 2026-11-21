@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B12 Applications</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>B12 Applications</h1>
+    <span id="api-label" class="muted"></span>
+  </header>
+
+  <main>
+    <section id="list-view">
+      <div class="card">
+        <h2>New application</h2>
+        <form id="create-form" class="row">
+          <input name="name" placeholder="Name" required>
+          <input name="email" placeholder="Email" required>
+          <button>Create</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Applications</h2>
+        <form id="filter-form" class="row">
+          <input name="email" placeholder="Email">
+          <input name="receipt" placeholder="Receipt">
+          <label>From <input type="date" name="submitted_from"></label>
+          <label>To <input type="date" name="submitted_to"></label>
+          <select name="page_size" title="Page size">
+            <option>5</option><option selected>10</option><option>25</option>
+          </select>
+          <button>Filter</button>
+          <button type="button" id="filter-reset" class="secondary">Reset</button>
+        </form>
+        <table>
+          <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Submitted</th><th>Receipt</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <div class="row pager">
+          <button id="prev" class="secondary">&larr; Prev</button>
+          <span id="page-info" class="muted"></span>
+          <button id="next" class="secondary">Next &rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="detail-view" hidden>
+      <button id="back" class="secondary">&larr; Back to list</button>
+      <div class="card">
+        <h2>Application <span id="d-id"></span></h2>
+        <dl id="d-fields"></dl>
+      </div>
+      <div class="card">
+        <h2>Change stage</h2>
+        <form id="stage-form" class="row">
+          <select name="stage" id="stage-select"></select>
+          <button>Update stage</button>
+        </form>
+        <p class="muted">Only forward moves are allowed; Hired and Rejected are final (otherwise the API answers 409).</p>
+      </div>
+      <div class="card">
+        <h2>Add note <span class="muted">(to the current stage)</span></h2>
+        <form id="note-form" class="row">
+          <input name="content" placeholder="Note" required>
+          <button>Add note</button>
+        </form>
+      </div>
+      <div class="card">
+        <h2>History</h2>
+        <ol id="history" class="timeline"></ol>
+      </div>
+    </section>
+
+    <div id="toast" hidden></div>
+
+    <details class="card" id="log-card" open>
+      <summary>API log <button id="log-clear" class="secondary small">Clear</button></summary>
+      <p class="muted">Every request and response, to check what the endpoints actually return.</p>
+      <div id="log"></div>
+    </details>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

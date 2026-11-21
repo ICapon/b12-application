@@ -1,0 +1,27 @@
+:root { --bg:#f6f7f9; --card:#fff; --text:#1c2430; --muted:#6b7585; --line:#e1e5eb; --accent:#2f5bea; --ok:#1a7f4b; --err:#c0392b; }
+* { box-sizing: border-box; }
+body { margin:0; font:14px/1.45 system-ui,sans-serif; background:var(--bg); color:var(--text); }
+header { display:flex; align-items:baseline; gap:12px; padding:14px 24px; background:var(--card); border-bottom:1px solid var(--line); }
+h1 { font-size:18px; margin:0; } h2 { font-size:15px; margin:0 0 10px; }
+main { max-width:960px; margin:0 auto; padding:20px 24px 60px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:16px; }
+.row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+input, select { padding:6px 8px; border:1px solid var(--line); border-radius:6px; font:inherit; }
+input:not([type=date]) { flex:1; min-width:140px; }
+button { padding:6px 12px; border:0; border-radius:6px; background:var(--accent); color:#fff; font:inherit; cursor:pointer; }
+button.secondary { background:#e9edf3; color:var(--text); } button.small { padding:2px 8px; margin-left:8px; }
+button:disabled { opacity:.5; cursor:default; }
+table { width:100%; border-collapse:collapse; margin-top:10px; }
+th, td { text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); }
+tbody tr { cursor:pointer; } tbody tr:hover { background:#f0f4ff; }
+.muted { color:var(--muted); } .pager { justify-content:space-between; margin-top:10px; }
+dl { display:grid; grid-template-columns:140px 1fr; gap:4px 12px; margin:0; } dt { color:var(--muted); } dd { margin:0; word-break:break-all; }
+.badge { display:inline-block; padding:1px 8px; border-radius:10px; background:#e9edf3; font-size:12px; }
+.badge.Hired { background:#d6f1e2; color:var(--ok); } .badge.Rejected { background:#f8dcd8; color:var(--err); }
+.timeline { list-style:none; margin:0; padding:0 0 0 14px; border-left:2px solid var(--line); }
+.timeline li { margin:0 0 14px; padding-left:12px; } .timeline ul { margin:4px 0 0; padding-left:18px; }
+#toast { position:fixed; right:20px; top:16px; padding:10px 14px; border-radius:6px; color:#fff; background:var(--ok); }
+#toast.error { background:var(--err); }
+#log { font:12px/1.4 ui-monospace,monospace; max-height:280px; overflow:auto; }
+.log-entry { border-top:1px solid var(--line); padding:6px 0; white-space:pre-wrap; word-break:break-all; }
+.log-entry .ok { color:var(--ok); } .log-entry .bad { color:var(--err); }
